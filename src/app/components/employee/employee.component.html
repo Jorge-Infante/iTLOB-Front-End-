@@ -1,0 +1,28 @@
+<h1>Tabla de empleados</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Role Name</th>
+        <th scope="col">Role ID</th>
+        <th scope="col">Contract Type Name</th>
+        <th scope="col">Monthly Salary</th>
+        <th scope="col">Hourly Salary</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of empleados">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.roleName}}</td>
+        <td>{{item.roleId}}</td>
+        <td>{{item.contractTypeName}}</td>
+        <td>{{item.monthlySalary}}</td>
+        <td>{{item.hourlySalary}}</td>
+        <td *ngIf="item.contractTypeName=='HourlySalaryEmployee'">{{item.hourlySalary*10*120}}</td>
+        <td *ngIf="item.contractTypeName=='MonthlySalaryEmployee'">{{item.monthlySalary*12}}</td>
+      </tr>
+    </tbody>
+  </table>
